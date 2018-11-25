@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema Condomínio | Dados Pessoa</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+	<script type="text/javascript">	
+		function trocaClasse(botao) {botao.classList.add("is-loading");}
+		function alerta(){
+		    alert("Dados gravados com suscesso!");
+		}
+		function alterar(){
+			document.getElementById("nomePess").removeAttribute("disabled");
+			document.getElementById("cpfPess").removeAttribute("disabled");
+			document.getElementById("tipoPess").removeAttribute("disabled");
+			document.getElementById("telPess").removeAttribute("disabled");
+			document.getElementById("emailPess").removeAttribute("disabled");
+			document.getElementById("uniPess").removeAttribute("disabled");
+			
+			document.getElementById("btnDanger").value = "Cancelar";
+			document.getElementById("btnDanger").type = "reset";
+			document.getElementById("btnDanger").removeAttribute("href");
+			alert("Após alterar clique em salvar");
+		}
+	</script>
+</head>
+<body>
+<body class="hero-body">
+
+<section class="hero is-primary is-bold">
+ 
+ 	<div class="navbar">
+	  	<div class="hero-body">  		
+	    	<img src="http://www.faculdadepitagoras.com.br/Style%20Library/Images/logo_pitagoras.png" alt="Logo">
+			<div class="container has-text-centered">
+			    <h1 class="title">Sistema condomínio</h1>
+			    <h2 class="subtitle">Manter dados de Pessoa</h2>
+			</div>
+	  	</div>
+	</div>
+		
+	<div class="hero-body has-text-centered">
+				<div id="navbarMenuHeroC" class="navbar-menu">
+				<div class="navbar-end">
+					<a class="navbar-item" href="VTela_Principal.jsp">Menu Principal</a>
+					<a class="navbar-item is-active" href="VLogin.html"> Sair </a>
+				</div>
+			</div><br>
+		<div class="columns has-text-centered">
+			<div class="column is-3">
+				<p><h1 class="title">Cadastros</h1></p>
+				
+				<div class="box is-small">
+				    <div class="content">
+			      		<div class="hero">
+			       			<a class="button is-medium is-outlined is-primary" href="VCadCond.html">Condomínio</a><br>
+			       			<a class="button is-medium is-outlined is-primary"disabled>
+			       				Pessoas</a><br>
+			       			<a class="button is-medium is-outlined is-primary" disabled>Unidades</a><br>
+			       			<a class="button is-medium is-outlined is-primary" disabled href="">Serviços</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="column">
+				<p><h1 class="title">Cadastro de pessoas</h1></p>
+				<div class="box">
+					<div class="content">
+						<div class="hero">
+							<div class="field is-grouped is-grouped-centered">			           
+								<form action="CCadPessoa" method="get" class="form is-small">        
+						            <table class="table">
+						            	<tr>
+		            						<div class="field is-grouped">
+												<p class="control is-expanded">
+												<input class="input" type="text" placeholder="Procure por nome" name="nomeBusca" id="nomeBusca">
+												</p>
+												<p class="control">
+												<a class="button is-info" onclick="trocaClasse(this)" href="CBuscaPessoa"> Pocurar </a>
+												</p>
+											</div>
+						            	</tr>
+						                <tr class="tr is-selected">
+						                  <td><label>Código de cadastro: </label></td>
+						                  <td><input class="input is-primary is-small" id="cod" name="cod" type="text" style="width: 30px"><br></td>
+						                </tr>
+						                <tr>
+						                  <td><label for="nomePess">Nome Completo: </label></td>
+						                  <td><input disabled class="input is-primary is-small" style="width: 300px" type="text" name="nomePess" id="nomePess"></td>
+						                </tr>
+						                <tr>
+						                  <td><label for="uniPess" >Unidade: </label></td>
+						                  <td><input disabled class="input is-primary is-small" style="width: 30%" type="text" name="uniPess" id="uniPess"></td>
+						                </tr>
+						                <tr>
+						                  <td><label for="cpfPess" >CPF: </label></td>
+						                  <td><input disabled class="input is-primary is-small" style="width: 300px" type="text" name="cpfPess" id="cpfPess"></td>
+						                </tr>
+						            	<tr>
+						                  <td><label for="telPess" >Telefone: </label></td>
+						                  <td><input disabled class="input is-primary is-small" style="width: 300px" type="tel" name="telPess" id="telPess"></td>
+						                </tr>
+						            	<tr>
+						                  <td><label for="emailPess" >email: </label></td>
+						                  <td><input disabled class="input is-primary is-small" style="width: 300px" type="email" name="emailPess" id="emailPess"></td>
+						                </tr>						                
+						                
+						                <tr>
+						                  <td><label for="tipoPess"> Tipo: </label></td>
+						                  <td>
+						                  	<div class="field">
+											  <div class="control">
+											 	<div class="select is-primary">
+												  <select  disabled id="tipoPess" name="tipoPess">
+												  	<option value="Proprietário">Proprietário</option>
+								                    <option value="Locatário">Locatário</option>
+								                    <option value="Morardor">Morardor</option>
+								                    <option value="Prop. e Loc">Prop. e Loc</option>
+								                    <option value="Visitante">Visitante</option>
+												  </select>
+											 	</div>
+											  </div>
+											</div>
+						                  </td>
+						                 </tr>
+						             </table>
+		                				<div class="columns">
+		                				<div class="column">
+			                				<input onclick="alerta()" type="submit" class="button is-success is-outlined" value="Salvar">
+		                				</div>
+		                				<div class="column">
+									        <a onclick="alterar()" class="button is-outlined is-info"> Alterar </a>
+				         				</div>
+				         				<div class="column">
+									        <input type="reset" class="button is-danger" id="btnDanger" value="Excluir" onclick="MRemove">	
+				         				</div>
+	                				</div>
+								</form>
+							</div>
+						</div>							
+					</div>						
+				</div>					
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer class="hero is-small">
+  <div class="content has-text-centered">
+    <p>Desenvolvido por <a target="_blank" href="VAPresentacao.html">Helbert Ribeiro</a></p>
+  </div>
+</footer>
+</body>
+</html>
